@@ -43,10 +43,10 @@ end
 function scene.keyDown(key,isRep)
     if isRep then return end
     if isCtrlPressed() then
-        if     key=='i' then
+        if     key=='f3' then
             love.system.setClipboardText(GAME.playerList[1]:serialize())
             MSG.new('info',"Player data imported")
-        elseif key=='o' then
+        elseif key=='f4' then
             GAME.playerList[1]:unserialize(love.system.getClipboardText())
             MSG.new('info',"Player data exported")
         end
@@ -111,9 +111,9 @@ function scene.mouseMove(x,y,dx,dy) scene.touchMove(x,y,dx,dy,1) end
 scene.mouseUp=scene.touchUp
 
 function scene.update(dt)
-    if love.keyboard.isDown('q') then
+    if love.keyboard.isDown('f1') then
         dt=dt*.1
-    elseif love.keyboard.isDown('w') then
+    elseif love.keyboard.isDown('f2') then
         dt=dt*2.6
     end
     GAME.update(dt)
